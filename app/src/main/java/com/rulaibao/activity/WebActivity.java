@@ -44,6 +44,8 @@ public class WebActivity extends Activity implements View.OnClickListener {
     public static final String WEBTYPE_PROJECT_MATERIAL_DETAIL = "project_material_detail "; //项目材料
 
     public String title;
+    public String shardtitle;
+    public String shardcontent;
     private TextView tv_web_title; // 标题
     private ImageView iv_back; // 返回按钮
     private ImageView iv_btn_share; // 分享按钮
@@ -127,6 +129,8 @@ public class WebActivity extends Activity implements View.OnClickListener {
             tv_web_title.setText(getIntent().getExtras().getString("title"));
 
         }else if (type.equals(WEBTYPE_PLAN_BOOK)) {//计划书
+            shardtitle = getIntent().getStringExtra("shardtitle");
+            shardcontent = getIntent().getStringExtra("shardcontent");
             iv_btn_share.setVisibility(View.VISIBLE);
             tv_web_title.setText(getIntent().getExtras().getString("title"));
 
@@ -184,7 +188,7 @@ public class WebActivity extends Activity implements View.OnClickListener {
                 ShareSDKDialog dialog = new ShareSDKDialog(this, new ShareSDKDialog.OnShare() {
                     @Override
                     public void onConfirm(int position) {
-                        ShareUtil.sharedSDK(WebActivity.this, position, "", "推荐说明：" + "", shareUrl);
+                        ShareUtil.sharedSDK(WebActivity.this, position, shardtitle, "推荐说明：" + shardcontent, shareUrl);
                     }
 
                     @Override

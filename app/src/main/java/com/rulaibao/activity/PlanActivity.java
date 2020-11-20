@@ -194,6 +194,8 @@ public class PlanActivity extends BaseActivity implements View.OnClickListener {
                 intent.putExtra("type", WebActivity.WEBTYPE_PLAN_BOOK);
                 intent.putExtra("url", totalList.get(position-1).getProspectus());
                 intent.putExtra("title", "计划书");
+                intent.putExtra("shardtitle", totalList.get(position-1).getName());
+                intent.putExtra("shardcontent", totalList.get(position-1).getRecommendations());
                 startActivity(intent);
             }
         });
