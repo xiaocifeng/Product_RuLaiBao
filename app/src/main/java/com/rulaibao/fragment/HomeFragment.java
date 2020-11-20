@@ -320,7 +320,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             e.printStackTrace();
         }
         LinkedHashMap<String, Object> param = new LinkedHashMap<>();
-        param.put("userId", userId);
+//        param.put("userId", userId);
         HtmlRequest.getHomeData(context, param, new BaseRequester.OnRequestListener() {
             @Override
             public void onRequestFinished(BaseParams params) {
