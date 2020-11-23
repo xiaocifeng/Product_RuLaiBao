@@ -107,7 +107,7 @@
                                 android:layout_height="wrap_content"
                                 android:drawableLeft="@mipmap/ic_age"
                                 android:drawablePadding="5dp"
-                                android:text="年龄"
+                                android:text="投保年龄"
                                 android:textColor="@color/gray_d"/>
                         </LinearLayout>
 
@@ -305,7 +305,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="投保须知"
+                            android:text="产品介绍"
                             android:textColor="@color/gray_dark"/>
 
                         <ImageView
@@ -356,7 +356,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="条款资料"
+                            android:text="产品条款"
                             android:textColor="@color/gray_dark"/>
 
                         <ImageView
