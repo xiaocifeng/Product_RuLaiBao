@@ -265,6 +265,8 @@ public class InsuranceProductDetailActivity extends Activity implements View.OnC
                 intent.putExtra("type", WebActivity.WEBTYPE_PLAN_BOOK);
                 intent.putExtra("url", result.getProspectus());
                 intent.putExtra("title", "计划书");
+                intent.putExtra("shardtitle", result.getName());
+                intent.putExtra("shardcontent", result.getRecommendations());
                 startActivity(intent);
                 break;
             case R.id.btn_buy:// 购买

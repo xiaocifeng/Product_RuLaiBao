@@ -120,6 +120,9 @@ public class SearchForPlanActivity extends BaseActivity implements View.OnClickL
                 intent.putExtra("type", WebActivity.WEBTYPE_PLAN_BOOK);
                 intent.putExtra("url", totalList.get(position).getProspectus());
                 intent.putExtra("title", "计划书");
+                intent.putExtra("shardtitle", totalList.get(position).getName());
+                intent.putExtra("shardcontent", totalList.get(position).getRecommendations());
+
                 startActivity(intent);
             }
         });
