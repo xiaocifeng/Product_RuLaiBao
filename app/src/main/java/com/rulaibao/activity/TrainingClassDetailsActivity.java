@@ -301,7 +301,9 @@ public class TrainingClassDetailsActivity extends BaseActivity implements Traini
         //false：关闭小窗；true：开启小窗；不设置默认true，
         data.putInt("DefaultVideoScreen", 2);
         //1：以页面内开始播放，2：以全屏开始播放；不设置默认：1
-        x5Webview.getX5WebViewExtension().invokeMiscMethod("setVideoParams", data);
+        if(x5Webview.getX5WebViewExtension()!=null){
+            x5Webview.getX5WebViewExtension().invokeMiscMethod("setVideoParams", data);
+        }
 
         /********************************************* 测试 ************************************************/
 
