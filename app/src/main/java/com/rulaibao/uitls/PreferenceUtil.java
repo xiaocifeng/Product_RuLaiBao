@@ -130,6 +130,24 @@ public class PreferenceUtil {
     }
 
     /**
+     * 是否同意隐私协议
+     *
+     * @return
+     */
+    public static boolean isArgeeAgreement() {
+        return getUserSharedPreferences().getBoolean("ISARGEEAGREEMENT", false);
+    }
+
+    /**
+     * 设置是否同意隐私协议
+     *
+     * @param isfirst
+     */
+    public static void setArgeeAgreement(boolean isfirst) {
+        getUserSharedPreferences().edit().putBoolean("ISARGEEAGREEMENT", isfirst).commit();
+    }
+
+    /**
      * 是否首次登陆应用
      *
      * @return
