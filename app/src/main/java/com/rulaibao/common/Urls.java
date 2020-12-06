@@ -341,6 +341,8 @@ public class Urls {
     public static final String URL_SIGN_WEB = EC_HOST + "register/agreement";
     // 服务协议
     public static final String URL_SERVICE_AGREEMENT = EC_HOST + "app/service/agreement";
+    // 隐私协议
+    public static final String URL_SERVICE_PRIVACY_AGREEMENT = EC_HOST + "app/service/privacyPolicyStatement ";
 
     // 视频播放
     public static final String URL_TRAINGCLASS = EC_HOST + "appCourse/detailideoplay";
