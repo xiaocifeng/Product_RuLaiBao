@@ -94,6 +94,8 @@ public class showAgressmentSureDialog extends Dialog implements DialogInterface.
         txtCancel.setOnClickListener(cancelListener);
 
         tv_title.setText("温馨提示");
+        txtConfirm.setText("同意并继续");
+        txtCancel.setText("仍不同意，退出应用");
 
         SpannableString agreement = new SpannableString("如不同意《如来保会员服务协议》和《隐私政策》，很遗憾我们将无法提供服务。");
         agreement.setSpan(new MyClickableSpan("《如来保会员服务协议》"), 4, 15, SpannableString.SPAN_INCLUSIVE_INCLUSIVE);

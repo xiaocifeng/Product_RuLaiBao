@@ -80,7 +80,9 @@
             android:layout_marginLeft="10dip"
             android:layout_marginRight="10dip"
             android:alpha="0.5"
-            android:src="@drawable/tab_lines"/>
+            android:src="@drawable/tab_lines"
+            android:visibility="gone"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,7 +90,7 @@
             android:orientation="horizontal"
             android:layout_marginLeft="30dip"
             android:layout_marginRight="30dip"
-            android:background="@drawable/shape_center_gray"
+            android:background="@drawable/shape_ellipse_orange_btn_pressed"
             android:weightSum="1.0">
 
 
