@@ -130,7 +130,7 @@ public class PlanActivity extends BaseActivity implements View.OnClickListener {
             @Override
             public void onSelected(Set<Integer> selectPosSet)
             {
-         //       category=stringBuilder(selectPosSet);
+                //       category=stringBuilder(selectPosSet);
             }
         });
     }
@@ -194,6 +194,8 @@ public class PlanActivity extends BaseActivity implements View.OnClickListener {
                 intent.putExtra("type", WebActivity.WEBTYPE_PLAN_BOOK);
                 intent.putExtra("url", totalList.get(position-1).getProspectus());
                 intent.putExtra("title", "计划书");
+                intent.putExtra("shardtitle", totalList.get(position-1).getName());
+                intent.putExtra("shardcontent", totalList.get(position-1).getRecommendations());
                 startActivity(intent);
             }
         });
@@ -297,7 +299,7 @@ public class PlanActivity extends BaseActivity implements View.OnClickListener {
                 if (isOpened) {
                     //动画是开启状态
                     iv_arrows.setBackgroundResource(R.mipmap.ic_drop_down_unselected);
-                        closeShopping(ll_insurance_company);
+                    closeShopping(ll_insurance_company);
                 } else {
                     //动画是关闭状态
                     openShopping(ll_insurance_company);
@@ -306,7 +308,7 @@ public class PlanActivity extends BaseActivity implements View.OnClickListener {
 
                 break;
             case R.id.v_hidden:  // 隐藏布局 关闭动画
-       ///         closeShopping(ll_insurance_company);
+                ///         closeShopping(ll_insurance_company);
                 break;
             case R.id.tv_reset:  // 重置
                 category="";

@@ -3,12 +3,21 @@ apply plugin: 'com.mob.sdk'
 apply from: '../MobSDK.gradle'
 dependencies {
     compile fileTree(include: '*.jar', dir: 'libs')
+<<<<<<< HEAD
+    compile 'com.android.support:support-v4:26.1.0'
+}
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.3'
+=======
     compile 'com.android.support:support-v4:24.2.1'
 }
 
 android {
     compileSdkVersion 24
     buildToolsVersion '26.0.2'
+>>>>>>> 4c9f920b01b581af351b391868c382b8344224c0
 
     sourceSets {
         main {

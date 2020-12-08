@@ -130,6 +130,27 @@ public class PreferenceUtil {
     }
 
     /**
+<<<<<<< HEAD
+     * 是否同意隐私协议
+     *
+     * @return
+     */
+    public static boolean isArgeeAgreement() {
+        return getUserSharedPreferences().getBoolean("ISARGEEAGREEMENT", false);
+    }
+
+    /**
+     * 设置是否同意隐私协议
+     *
+     * @param isfirst
+     */
+    public static void setArgeeAgreement(boolean isfirst) {
+        getUserSharedPreferences().edit().putBoolean("ISARGEEAGREEMENT", isfirst).commit();
+    }
+
+    /**
+=======
+>>>>>>> 4c9f920b01b581af351b391868c382b8344224c0
      * 是否首次登陆应用
      *
      * @return
@@ -146,6 +167,7 @@ public class PreferenceUtil {
     public static void setFirstLogin(boolean isfirst) {
         getUserSharedPreferences().edit().putBoolean("ISFIRSTLOGIN", isfirst).commit();
     }
+
 
     /**
      * 设置手势密码

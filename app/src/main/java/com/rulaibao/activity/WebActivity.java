@@ -21,8 +21,11 @@ import android.widget.TextView;
 
 import com.lzy.imagepicker.view.SystemBarTintManager;
 import com.rulaibao.R;
+import com.rulaibao.common.Urls;
+import com.rulaibao.dialog.ShareSDKDialog;
 import com.rulaibao.network.HtmlRequest;
 import com.rulaibao.uitls.ActivityStack;
+import com.rulaibao.uitls.ShareUtil;
 
 
 public class WebActivity extends Activity implements View.OnClickListener {
@@ -41,6 +44,8 @@ public class WebActivity extends Activity implements View.OnClickListener {
     public static final String WEBTYPE_PROJECT_MATERIAL_DETAIL = "project_material_detail "; //项目材料
 
     public String title;
+    public String shardtitle;
+    public String shardcontent;
     private TextView tv_web_title; // 标题
     private ImageView iv_back; // 返回按钮
     private ImageView iv_btn_share; // 分享按钮
@@ -124,6 +129,9 @@ public class WebActivity extends Activity implements View.OnClickListener {
             tv_web_title.setText(getIntent().getExtras().getString("title"));
 
         }else if (type.equals(WEBTYPE_PLAN_BOOK)) {//计划书
+            shardtitle = getIntent().getStringExtra("shardtitle");
+            shardcontent = getIntent().getStringExtra("shardcontent");
+            iv_btn_share.setVisibility(View.VISIBLE);
             tv_web_title.setText(getIntent().getExtras().getString("title"));
 
         }else if (type.equals(WEBTYPE_BUY)) {//购买链接
@@ -173,6 +181,23 @@ public class WebActivity extends Activity implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.iv_back:
                 finish();
+                break;
+            case R.id.iv_btn_share:
+                final String shareUrl = url;
+                // 设置分享参数
+                ShareSDKDialog dialog = new ShareSDKDialog(this, new ShareSDKDialog.OnShare() {
+                    @Override
+                    public void onConfirm(int position) {
+                        ShareUtil.sharedSDK(WebActivity.this, position, shardtitle, "推荐说明：" + shardcontent, shareUrl);
+                    }
+
+                    @Override
+                    public void onCancel() {
+
+                    }
+                });
+                dialog.show();
+
                 break;
         }
     }

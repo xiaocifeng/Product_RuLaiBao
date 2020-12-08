@@ -23,6 +23,7 @@ import android.widget.ImageView;
 
 import com.rulaibao.R;
 import com.rulaibao.common.Urls;
+import com.rulaibao.dialog.DeleteHistoryDialog;
 import com.rulaibao.service.PreLoadX5Service;
 import com.rulaibao.uitls.encrypt.DESUtil;
 import com.rulaibao.uitls.PreferenceUtil;
@@ -35,6 +36,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static android.view.View.GONE;
 import static com.rulaibao.activity.RecommendActivity.getSDPath;
 
 /**
@@ -251,42 +253,69 @@ public class SplashActivity extends FragmentActivity {
     class MyHandler extends Handler {
 
         @Override
-        public void handleMessage(Message msg) {
+        public void handleMessage(final Message msg) {
             super.handleMessage(msg);
-            switch (msg.what) {
-                case LOGIN:
-                    if (PreferenceUtil.isGestureChose()) {
-                        Intent i = new Intent(SplashActivity.this, GestureVerifyActivity.class);
-                        i.putExtra("from", Urls.ACTIVITY_SPLASH);
-                        i.putExtra("title", getResources().getString(R.string.gesture_login));
-                        i.putExtra("message", "请画出手势密码解锁");
-                        startActivity(i);
-                        finish();
-                    } else {
-                        Intent iMain = new Intent(SplashActivity.this, MainActivity.class);
-                        iMain.putExtra("pushBean", pushBean);
-                        startActivity(iMain);
-                        finish();
-                    }
-                    break;
-                case NOLOGIN:
+            if(PreferenceUtil.isArgeeAgreement()){
+                toMainActivity(msg);
+            }else{
+                DeleteHistoryDialog dialog = new DeleteHistoryDialog(SplashActivity.this,
+                        new DeleteHistoryDialog.OnExitChanged() {
+
+                            @Override
+                            public void onConfirm() {
+//                                listString.clear();
+//                                isDelete=true;
+//                                flowLayoutHistory();//重新加载搜索内容
+//                                ll_delete_history.setVisibility(GONE);
+//                                tv_search_history_lines.setVisibility(GONE);
+                                toMainActivity(msg);
+                            }
+
+                            @Override
+                            public void onCancel() {
+                                toMainActivity(msg);
+                            }
+                        }, "确定清除历史搜索记录吗？");
+                dialog.show();
+            }
+
+        }
+
+    }
+
+    private void toMainActivity(Message msg) {
+        switch (msg.what) {
+            case LOGIN:
+                if (PreferenceUtil.isGestureChose()) {
+                    Intent i = new Intent(SplashActivity.this, GestureVerifyActivity.class);
+                    i.putExtra("from", Urls.ACTIVITY_SPLASH);
+                    i.putExtra("title", getResources().getString(R.string.gesture_login));
+                    i.putExtra("message", "请画出手势密码解锁");
+                    startActivity(i);
+                    finish();
+                } else {
                     Intent iMain = new Intent(SplashActivity.this, MainActivity.class);
                     iMain.putExtra("pushBean", pushBean);
                     startActivity(iMain);
                     finish();
-                    break;
-                case NOPWD:
-                    Intent iMain_nopw = new Intent(SplashActivity.this, MainActivity.class);
-                    iMain_nopw.putExtra("pushBean", pushBean);
-                    startActivity(iMain_nopw);
-                    finish();
+                }
+                break;
+            case NOLOGIN:
+                Intent iMain = new Intent(SplashActivity.this, MainActivity.class);
+                iMain.putExtra("pushBean", pushBean);
+                startActivity(iMain);
+                finish();
+                break;
+            case NOPWD:
+                Intent iMain_nopw = new Intent(SplashActivity.this, MainActivity.class);
+                iMain_nopw.putExtra("pushBean", pushBean);
+                startActivity(iMain_nopw);
+                finish();
 
-                    break;
-                default:
-                    break;
-            }
+                break;
+            default:
+                break;
         }
-
     }
 
     private static final int LOGIN = 0;  // 登录并且已设置手势密码
