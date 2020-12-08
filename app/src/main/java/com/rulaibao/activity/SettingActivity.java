@@ -33,6 +33,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     private RelativeLayout rl_setting_contact_customer_service;  // 联系客服
     private RelativeLayout rl_setting_platform_bulletin;  // 平台公告
     private RelativeLayout rl_setting_service_agreement; // 服务协议
+    private RelativeLayout rl_setting_service_agreement_private; // 隐私政策
     private RelativeLayout rl_setting_about;  //  关于如来保
     private TextView tv_setting_version_code;  //  版本号
     private Button btn_setting_logout;  // 退出登录
@@ -86,6 +87,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         rl_setting_contact_customer_service = (RelativeLayout) findViewById(R.id.rl_setting_contact_customer_service);
         rl_setting_platform_bulletin = (RelativeLayout) findViewById(R.id.rl_setting_platform_bulletin);
         rl_setting_service_agreement = (RelativeLayout) findViewById(R.id.rl_setting_service_agreement);
+        rl_setting_service_agreement_private = (RelativeLayout) findViewById(R.id.rl_setting_service_agreement_private);
         rl_setting_about = (RelativeLayout) findViewById(R.id.rl_setting_about);
 
         View v_show_no_login = findViewById(R.id.v_show_no_login);
@@ -109,6 +111,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         rl_setting_contact_customer_service.setOnClickListener(this);
         rl_setting_platform_bulletin.setOnClickListener(this);
         rl_setting_service_agreement.setOnClickListener(this);
+        rl_setting_service_agreement_private.setOnClickListener(this);
         rl_setting_about.setOnClickListener(this);
         btn_setting_logout.setOnClickListener(this);
 
@@ -200,6 +203,14 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 intent.putExtra("type", WebActivity.WEB_TYPE_SIGN_AGREEMENT);
                 intent.putExtra("title", getResources().getString(R.string.setting_service_agreement));
                 intent.putExtra("url", Urls.URL_SERVICE_AGREEMENT);
+                startActivity(intent);
+
+                break;
+            case R.id.rl_setting_service_agreement_private:  // 隐私政策
+                intent = new Intent(SettingActivity.this, WebActivity.class);
+                intent.putExtra("type", WebActivity.WEB_TYPE_SIGN_AGREEMENT);
+                intent.putExtra("title", getResources().getString(R.string.setting_service_private_agreement));
+                intent.putExtra("url", Urls.URL_SERVICE_PRIVACY_AGREEMENT);
                 startActivity(intent);
 
                 break;

@@ -157,6 +157,7 @@
     <string name="setting_contact_customer_service">联系客服</string>
     <string name="setting_platform_bulletin">平台公告</string>
     <string name="setting_service_agreement">服务协议</string>
+    <string name="setting_service_private_agreement">隐私政策</string>
     <string name="setting_about">关于如来保</string>
     <string name="setting_logout">退出登录</string>
     <string name="et_consulting_questions">请输入您想要咨询的问题,我们会及时与您联系！</string>
@@ -304,5 +305,10 @@
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="agressment_info">感谢您信任并使用如来保APP，依据最新法律要求，我们更新了会员服务协议、隐私政策。请您仔细阅读《如来保会员服务协议》和《隐私政策》，并确认了解我们对您的个人信息处理原则。</string>
+
+    <string name="agressment_info_sure">我们非常重视对您个人信息的保护，承诺严格按照如来保隐私政策保护及处理您的信息。</string>
+
 
 </resources>

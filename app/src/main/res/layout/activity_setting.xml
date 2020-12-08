@@ -232,6 +232,34 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rl_setting_service_agreement_private"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingBottom="17dp"
+                android:paddingTop="17dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/setting_service_private_agreement"
+                    android:textColor="@color/txt_black1"
+                    android:textSize="16sp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@mipmap/img_arrow_right"/>
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/rl_setting_about"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

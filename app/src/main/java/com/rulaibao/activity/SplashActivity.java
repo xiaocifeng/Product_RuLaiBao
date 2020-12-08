@@ -24,6 +24,8 @@ import android.widget.ImageView;
 import com.rulaibao.R;
 import com.rulaibao.common.Urls;
 import com.rulaibao.dialog.DeleteHistoryDialog;
+import com.rulaibao.dialog.showAgressmentDialog;
+import com.rulaibao.dialog.showAgressmentSureDialog;
 import com.rulaibao.service.PreLoadX5Service;
 import com.rulaibao.uitls.encrypt.DESUtil;
 import com.rulaibao.uitls.PreferenceUtil;
@@ -258,8 +260,8 @@ public class SplashActivity extends FragmentActivity {
             if(PreferenceUtil.isArgeeAgreement()){
                 toMainActivity(msg);
             }else{
-                DeleteHistoryDialog dialog = new DeleteHistoryDialog(SplashActivity.this,
-                        new DeleteHistoryDialog.OnExitChanged() {
+                showAgressmentDialog dialog = new showAgressmentDialog(SplashActivity.this,
+                        new showAgressmentDialog.OnExitChanged() {
 
                             @Override
                             public void onConfirm() {
@@ -268,14 +270,30 @@ public class SplashActivity extends FragmentActivity {
 //                                flowLayoutHistory();//重新加载搜索内容
 //                                ll_delete_history.setVisibility(GONE);
 //                                tv_search_history_lines.setVisibility(GONE);
+                                PreferenceUtil.setArgeeAgreement(true);
                                 toMainActivity(msg);
                             }
 
                             @Override
                             public void onCancel() {
-                                toMainActivity(msg);
+                                showAgressmentSureDialog dialo_sure = new showAgressmentSureDialog(SplashActivity.this,
+                                        new showAgressmentSureDialog.OnExitChanged() {
+
+                                            @Override
+                                            public void onConfirm() {
+                                                PreferenceUtil.setArgeeAgreement(true);
+                                                toMainActivity(msg);
+                                            }
+
+                                            @Override
+                                            public void onCancel() {
+                                                finish();
+                                            }
+                                        }, "");
+                                dialo_sure.show();
+
                             }
-                        }, "确定清除历史搜索记录吗？");
+                        }, "");
                 dialog.show();
             }
 
