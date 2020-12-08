@@ -370,7 +370,7 @@ public class InsuranceProductDetailBeiFenActivity extends BaseActivity implement
             @Override
             public void onRequestFinished(BaseParams params) {
                 if (param == null || params.result == null) {
-            //        Toast.makeText(InsuranceProductDetailActivity.this, "加载失败，请确认网络通畅",Toast.LENGTH_LONG).show();
+                    //        Toast.makeText(InsuranceProductDetailActivity.this, "加载失败，请确认网络通畅",Toast.LENGTH_LONG).show();
                     return;
                 }
                 result = (InsuranceDetail1B) params.result;
@@ -410,7 +410,7 @@ public class InsuranceProductDetailBeiFenActivity extends BaseActivity implement
             @Override
             public void onRequestFinished(BaseParams params) {
                 if (param == null || params.result == null) {
-             //       Toast.makeText(InsuranceProductDetailActivity.this, "加载失败，请确认网络通畅",Toast.LENGTH_LONG).show();
+                    //       Toast.makeText(InsuranceProductDetailActivity.this, "加载失败，请确认网络通畅",Toast.LENGTH_LONG).show();
                     return;
                 }
                 Collection2B collection2B = (Collection2B) params.result;
@@ -592,9 +592,9 @@ public class InsuranceProductDetailBeiFenActivity extends BaseActivity implement
         String str1= "推广费:";
         String str2=str1+str;
         if ("认证可见".equals(str)){
-             str3=str2+"";
+            str3=str2+"";
         }else{
-             str3=str2+"%";
+            str3=str2+"%";
         }
         SpannableStringBuilder ssb= StringUtil.setTextStyle(context, str1, str2, str3,
                 R.color.txt_black2, R.color.txt_black1, R.color.txt_black1,
