@@ -112,7 +112,7 @@ public class InsuranceProductDetailBeiFenActivity extends BaseActivity implement
     private String collectionId;
     private ViewSwitcher vs;
     private TextView tv_empty;
-
+    private String userPhone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -193,6 +193,12 @@ public class InsuranceProductDetailBeiFenActivity extends BaseActivity implement
 
         vs = (ViewSwitcher) findViewById(R.id.vs);
         tv_empty = (TextView) findViewById(R.id.tv_empty);
+
+        try {
+            userPhone = DESUtil.decrypt(PreferenceUtil.getPhone());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void initData() {
@@ -339,7 +345,7 @@ public class InsuranceProductDetailBeiFenActivity extends BaseActivity implement
                 }
                 intent = new Intent(this, WebActivity.class);
                 intent.putExtra("type", WebActivity.WEBTYPE_BUY);
-                intent.putExtra("url", result.getProductLink());
+                intent.putExtra("url", result.getProductLink()+"&sc="+userPhone);
                 intent.putExtra("title", "购买");
                 startActivity(intent);
                 break;

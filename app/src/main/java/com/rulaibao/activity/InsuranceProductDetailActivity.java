@@ -83,7 +83,7 @@ public class InsuranceProductDetailActivity extends Activity implements View.OnC
     private ImageView img_close; // 多个推广费布局关闭按钮
     private boolean isOpen;//推广费是否打开
     private String shareLink; // 分享链接
-
+    private String userPhone;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -171,6 +171,13 @@ public class InsuranceProductDetailActivity extends Activity implements View.OnC
         HtmlRequest.synCookies(this, url);
 
         web_view.loadUrl(url);
+
+
+        try {
+            userPhone = DESUtil.decrypt(PreferenceUtil.getPhone());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public class MyJavaScriptinterface {
@@ -283,7 +290,7 @@ public class InsuranceProductDetailActivity extends Activity implements View.OnC
                 }
                 intent = new Intent(this, WebActivity.class);
                 intent.putExtra("type", WebActivity.WEBTYPE_BUY);
-                intent.putExtra("url", result.getProductLink());
+                intent.putExtra("url", result.getProductLink()+"&sc="+userPhone);
                 intent.putExtra("title", "购买");
                 startActivity(intent);
                 break;
