@@ -219,6 +219,10 @@
             android:screenOrientation="portrait"/>
 
         <activity
+            android:name="com.rulaibao.activity.MyWebviewActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
             android:name="com.rulaibao.activity.PlayerVideoActivity"
             android:configChanges="orientation|keyboardHidden|navigation|screenSize"
             android:theme="@style/Theme.AppCompat.Light.NoTitleBar"/>

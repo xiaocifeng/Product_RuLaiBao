@@ -39,6 +39,7 @@ import com.rulaibao.uitls.ShareUtil;
 import com.rulaibao.uitls.StringUtil;
 import com.rulaibao.uitls.encrypt.DESUtil;
 import com.rulaibao.widget.MyListView;
+import com.rulaibao.widget.webview.MyWebView;
 
 import java.util.LinkedHashMap;
 
@@ -288,7 +289,7 @@ public class InsuranceProductDetailActivity extends Activity implements View.OnC
                     startActivity(intent);
                     return;
                 }
-                intent = new Intent(this, WebActivity.class);
+                intent = new Intent(this, MyWebviewActivity.class);
                 intent.putExtra("type", WebActivity.WEBTYPE_BUY);
                 intent.putExtra("url", result.getProductLink()+"&sc="+userPhone);
                 intent.putExtra("title", "购买");

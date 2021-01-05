@@ -343,7 +343,7 @@ public class InsuranceProductDetailBeiFenActivity extends BaseActivity implement
                     startActivity(intent);
                     return;
                 }
-                intent = new Intent(this, WebActivity.class);
+                intent = new Intent(this, MyWebviewActivity.class);
                 intent.putExtra("type", WebActivity.WEBTYPE_BUY);
                 intent.putExtra("url", result.getProductLink()+"&sc="+userPhone);
                 intent.putExtra("title", "购买");
