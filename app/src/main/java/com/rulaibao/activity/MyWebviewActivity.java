@@ -53,6 +53,16 @@ public class MyWebviewActivity extends Activity {
 		super.onDestroy();
 	}
 
+	@Override
+	protected void onResume() {
+		super.onResume();
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+	}
+
 	private void initViews() {
 		myWebView = findViewById(R.id.web_view);
 		tv_web_title = findViewById(R.id.tv_web_title);

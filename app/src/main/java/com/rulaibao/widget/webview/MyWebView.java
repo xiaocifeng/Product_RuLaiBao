@@ -162,7 +162,7 @@ public class MyWebView extends WebView {
 		this.setWebViewClient(myWebViewClient);
 
 		//实现html文件中可以调用java方法
-		addJavascriptInterface(com.rulaibao.widget.webview.WebViewJSInterface.getInstance(mContext,this), "androidMethod");
+		addJavascriptInterface(WebViewJSInterface.getInstance(mContext,this), "androidMethod");
 	}
 	
 	/**加载远程网页

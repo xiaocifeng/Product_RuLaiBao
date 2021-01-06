@@ -2,6 +2,7 @@ package com.rulaibao.widget.webview;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -95,8 +96,8 @@ public class MyWebChromeClient extends WebChromeClient {
 		if(mUploadCallbackAboveL!=null) {
 			Log.w(TAG, "mUploadCallbackAboveL.toString()=" + mUploadCallbackAboveL.toString());
 		}
-		selectPhoto();
-//		WebViewJSInterface.getInstance(context,myWebView).choosePic();
+//		selectPhoto();
+		WebViewJSInterface.getInstance(context,myWebView).takePicture();
 	}
 
 	//设置头像，选择相册或相机
@@ -112,6 +113,22 @@ public class MyWebChromeClient extends WebChromeClient {
 				WebViewJSInterface.getInstance(context,myWebView).takePicture();
 			}
 
+		});
+		mDialog.addListeners(new DialogInterface.OnCancelListener() {
+			@Override
+			public void onCancel(DialogInterface dialog) {
+
+			}
+		}, new DialogInterface.OnDismissListener() {
+			@Override
+			public void onDismiss(DialogInterface dialog) {
+//				if (myWebView.getMyWebChromeClient().getmUploadMessage() != null) {
+//					myWebView.getMyWebChromeClient().getmUploadMessage().onReceiveValue(null);
+//				}
+//				if (myWebView.getMyWebChromeClient().getmUploadCallbackAboveL() != null) {
+//					myWebView.getMyWebChromeClient().getmUploadCallbackAboveL().onReceiveValue(null);
+//				}
+			}
 		});
 		mDialog.show();
 	}
